@@ -4,7 +4,8 @@ const imageFile = image ? `/images/${image}` : undefined;
 ---
 
 <div
-  class="text grid grid-rows-[auto,_auto] w-full sm:grid-rows-1 sm:grid-cols-2"
+  class="text grid grid-rows-[auto,_auto] w-full
+    sm:grid-rows-1 sm:grid-cols-2"
 >
   {
     imageFile && (
@@ -14,7 +15,7 @@ const imageFile = image ? `/images/${image}` : undefined;
   }
   <div class="text-content">
     <h3
-      class="font-display text-3xl text-white mt-16 mb-8 uppercase text-center
+      class="font-display text-3xl text-slate-800 mt-16 mb-8 text-center
 	  	sm:text-2xl	sm:text-left sm:px-8 sm:mt-8 sm:mb-4
 		md:text-4xl md:m-16 md:mb-8 md:p-0"
     >

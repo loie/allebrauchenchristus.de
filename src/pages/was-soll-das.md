@@ -22,7 +22,7 @@ Dass das in Wirklichkeit nicht immer so ist, ist uns allen klar, aber mal angeno
 
 Das Leben wäre doch schön, oder? Man müsste keine Angst mehr haben, seine Kinder auch nachts noch in der Stadt auf die Straße zu lassen, könnte sich sicher sein, dass es nicht durchkommt, wenn mal wieder so ein Superreicher seine Steuern hinterzieht, jedesmal, wenn man schwarz arbeitet, würde man erwischt, jedesmal, wenn man wieder innerorts 60 fährt, würde man einen Strafzettel kriegen...
 
-    <p>Warte, das will ich aber nicht!</p>
+   >Warte, das will ich aber nicht!foo/>
     <p>Und das ist das Problem. Gott ist tatsächlich gerecht,
     aber wir sind es sehr deutlich nicht.</p>
     <p>Und böse Menschen mit einem gerechten Gott haben ein großes Problem:

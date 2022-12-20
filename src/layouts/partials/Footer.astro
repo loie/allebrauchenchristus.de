@@ -14,7 +14,7 @@ const phone = await import("../../icons/phone.svg?raw");
 	2xl:max-w-screen-xl"
 >
   <h3
-    class="font-display text-3xl text-white uppercase sm:text-2xl text-left
+    class="font-display text-3xl text-slate-800 uppercase sm:text-2xl text-left
 		md:text-4xl
 		lg:text-neutral-darkest"
   >
@@ -26,33 +26,33 @@ const phone = await import("../../icons/phone.svg?raw");
     <div class="footer-location flex flex-row gap-x-6 gap-y-4 w-full">
       {
         location && (
-          <div class="text-neutral-400 mt-2 w-10">
+          <div class="text-slate-400 mt-2 w-10">
             <Fragment set:html={location.default} />
           </div>
         )
       }
       <span class="text-lg font-bold
 	  	sm:flex sm:items-center">
-        Burgstrasse 22<br />53809 Ruppichteroth
+        Alte Rathausstraße 4<br />51545 Waldbröl
       </span>
     </div>
     <div class="footer-phone flex flex-row gap-x-6 gap-y-4">
       {
         phone && (
-          <div class="text-neutral-400 mt-2 w-10">
+          <div class="text-slate-400 mt-2 w-10">
             <Fragment set:html={phone.default} />
           </div>
         )
       }
       <span class="text-lg font-bold
 	  	sm:flex sm:items-center">
-        <a href="tel:+491752056296">+49 175 205 6296</a>
+        <a href="tel:+491752056296"></a>
       </span>
     </div>
   </div>
   <div class="flex flex-col gap-y-4">
-    <a href="/impressum" class="hover:underline text-white">Impressum</a>
-    <a href="/datenschutz" class="hover:underline text-white"
+    <a href="/impressum" class="hover:underline text-slate-800">Impressum</a>
+    <a href="/datenschutz" class="hover:underline text-slate-800"
       >Datenschutz&shy;erklärung</a
     >
   </div>
