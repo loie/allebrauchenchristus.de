@@ -1,0 +1,19 @@
+---
+const { title } = Astro.props;
+
+---
+
+<section class="features relative container mx-auto px-8 py-16
+	md:max-w-screen-sm ms:px-0
+	lg:max-w-screen-md
+	xl:max-w-screen-lg
+	2xl:max-w-screen-xl">
+	<h3 class="font-display text-3xl text-white mb-8 uppercase text-center
+			   sm:text-2xl sm:text-left 
+			   md:text-4xl md:pt-8 md:mb-8
+			   lg:text-neutral-darkest">		
+		{ title }
+	</h3>
+	<div class="feature-content grid grid-cols-1 gap-y-8
+		lg:grid-cols-3 lg:gap-x-16"><slot /></div>
+</section>

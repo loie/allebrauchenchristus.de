@@ -1,0 +1,82 @@
+---
+
+const { headline, title, subtitle, bgImage, logo } = Astro.props;
+const sizes = [320, 480, 720, 1024, 1280, 1500, 2500]
+
+const bgImagePath = `/images/${bgImage}`
+const logoPath = `/logos/${logo}`
+
+---
+
+
+<section class="hero relative min-h-screen w-full overflow-hidden">
+	<img src={ bgImagePath }
+		 class="block absolute w-full h-full top-0 left-0 object-cover object-center" />
+
+	<div class="absolute w-full bg-gradient-to-b from-white/50 to-white/70
+        lg:hidden"></div>
+
+	<!--
+         <picture>
+         <source srcset="{{ imgSourceSet }}" />
+         <img
+         src="{{ image.url }}"
+         sizes="auto"
+         loading="lazy"
+         class="block absolute w-full h-full top-0 left-0 object-cover object-center"
+         alt="{{ page.header.alt }}"
+         title="{{ page.header.alt }}" />
+         </picture>
+		 {% elseif video %}
+         <video src="{{ video.url }}" class="" autoplay muted loop playsinline loading="lazy" ></video>
+		 {% endif %}
+		 <div class="absolute h-screen w-full bg-gradient-to-b from-gray-900/0 to-gray-900/70 lg:hidden"></div>
+		 {{ dump(page.header.placement_image) }}
+		 {% set is_left = page.header.placement_image == "left" %}
+		 {{ dump(is_left) }}
+		 {% set bg_classes = is_left ? 'lg:left-1/2' : "lg:left-0" %}
+	-->
+    <div class="gradient absolute h-full w-full bg-gradient-to-b
+                from-white/70 to-white/50 backdrop-blur-md
+                lg:w-2/3  lg:left-0"></div>
+    <div class="w-full flex flex-col justify-center pt-16 px-8 mb-8
+                lg:mx-auto lg:max-w-screen-md
+				xl:max-w-screen-lg xl:pt-0 xl:h-screen xl:mb-0
+				2xl:max-w-screen-xl 2xl:flex 2xl:flex-col 2xl:mt-0 2xl:justify-center">
+        <div class="container p-8 relative h-full
+					sm:block sm:mx-auto sm:pt-0
+                    md:max-w-screen-sm md:px-0
+                    lg:w-1/2 lg:mt-0 lg:max-w-full lg:mx-0 lg:py-0
+                    xl:pb-0 xl:max-w-screen-lg xl:mt-0
+                    2xl:max-w-screen-xl">
+            <div class="splitter
+                        h-full w-full flex flex-col items-center justify-center text-center
+						sm:items-start sm:justify-start sm:text-left
+                        lg:relative lg:justify-center lg:pr-8">
+				<img src={ logoPath } alt="Alle brauchen Christus" class="object-contain w-2/3
+                    sm:w-1/4
+                    lg:h-1/6 lg:w-1/3" />
+
+                {headline && 
+                <header class="block font-body font-normal text-base text-slate-800 mb-8
+                               md:mt-32 md:mb-0
+                               lg:mt-32 lg:text-neutral-darkest
+                               xl:mt-0">{ headline }</header>
+                }
+				<h1 class="font-display text-3xl text-primary mt-8 mb-4 uppercase font-black
+						   sm:text-2xl
+						   md:text-4xl md:pt-8 md:mb-8 md:mt-16
+						   lg:text-neutral-darkest lg:mt-8
+                           xl:text-5xl xl:mt-0
+                           2xl:text-6xl 2xl:mt-0
+						   wow animate__animated animate__fadeInUp">{ title }</h1>
+				<h2 class="font-body text-lg text-slate-800
+                            2xl:text-2xl
+						   wow animate__animated animate__fadeInUp
+						   md:text-xl">{ subtitle }</h2>
+				<slot name="social-proof" />
+                <slot name="ctas" />
+            </div>
+        </div>
+    </div>
+</section>

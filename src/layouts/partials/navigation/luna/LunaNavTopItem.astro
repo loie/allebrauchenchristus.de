@@ -1,0 +1,16 @@
+---
+const { label, icon, url } = Astro.props
+const svg = icon ? await import(`../../../../icons/${icon}.svg?raw`) : undefined
+---
+
+
+<a href={ url } class="font-display tracking-wide text-neutral-400 hover:text-primary">
+	{icon && <div class="text-neutral-400 w-7 h-7 block  ml-2
+						 lg:tracking-wider lg:text-sm
+						 xl:text-neutral-100 xl:w-4 xl:inline-block xl:h-4">
+	<Fragment set:html={ svg.default } />
+	</div>}
+	<span class="hidden xl:inline-block">{ label }</span>
+</a
+
+

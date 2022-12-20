@@ -1,0 +1,52 @@
+---
+import Base from "./Base.astro";
+const { frontmatter } = Astro.props;
+---
+
+<Base
+  title={frontmatter.title}
+  description={frontmatter.decription}
+  image={frontmatter.image}
+>
+  <header class="hero relative w-full overflow-hidden">
+    <img
+      src={frontmatter.image}
+      class="block absolute w-full h-full top-0 left-0 object-cover object-center"
+    />
+
+    <div
+      class="absolute w-full bg-gradient-to-b from-white/50 to-white/70 lg:hidden"
+    >
+    </div>
+    <div
+      class="gradient absolute h-full w-full bg-gradient-to-b from-white/70 to-white/50 lg:w-2/3 lg:left-0"
+    >
+    </div>
+    <div
+      class="h-full w-full md:pt-48 lg:mx-auto lg:w-full lg:top-0 lg:pt-0 lg:h-full lg:max-w-screen-md xl:max-w-screen-lg xl:pt-0 xl:top-1/4 2xl:max-w-screen-xl"
+    >
+      <div
+        class="container px-8 relative py-32 sm:block sm:mx-auto sm:mt-16 sm:h-full md:max-w-screen-sm md:px-0 lg:w-1/2 lg:mt-0 lg:h-full lg:max-w-full lg:mx-0 xl:max-w-screen-lg xl:mt-0 2xl:max-w-screen-xl"
+      >
+        <div
+          class="splitter h-full w-full flex flex-col items-center justify-center text-center sm:items-start sm:justify-start sm:text-left lg:relative lg:justify-center lg:pr-8"
+        >
+          <h1
+            class="font-display font-black text-4xl text-primary mb-4 sm:text-4xl md:text-6xl md:pt-8 md:mb-8 lg:text-neutral-darkest wow animate__animated animate__fadeInUp"
+          >
+            {frontmatter.title}
+          </h1>
+        </div>
+      </div>
+    </div>
+  </header>
+  <div
+    class="mt-8 mb-16 px-8 md:max-w-screen-sm md:mx-auto md:px-0 lg:max-w-screen-md xl:max-w-screen-lg 2xl:max-w-screen-xl"
+  >
+    <div
+      class="prose  prose-headings:font-display prose-h1:text-4xl prose-h2:text-3xl prose-h3:text-2xl prose-h4:text-xl prose-h5:text-lg"
+    >
+      <slot />
+    </div>
+  </div>
+</Base>

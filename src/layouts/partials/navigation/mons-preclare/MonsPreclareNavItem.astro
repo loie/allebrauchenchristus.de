@@ -1,0 +1,19 @@
+---
+
+const { label, url } = Astro.props
+
+---
+
+<li class="">
+	<a
+		href={ url }
+		class="scroll-menu font-display tracking-wide  flex py-2 text-lg font-semibold  whitespace-nowrap justify-end w-full text-right
+			hover:text-primary 
+			  lg:ml-7 lg:inline-flex lg:py-2 lg:font-normal lg:w-min
+			  xl:ml-10
+			  2xl:ml-12"
+	>
+		{ label } 
+	</a>
+</li>
+

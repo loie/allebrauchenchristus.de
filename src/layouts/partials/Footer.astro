@@ -1,0 +1,59 @@
+---
+const { title } = Astro.props;
+
+const location = await import("../../icons/location-star.svg?raw");
+const phone = await import("../../icons/phone.svg?raw");
+---
+
+<footer
+  class="footer flex flex-col relative w-full overflow-hidden px-8 py-16 gap-y-8
+  	sm:mx-auto sm:pt-16
+	md:max-w-screen-sm md:px-0
+	lg:max-w-screen-md
+	xl:max-w-screen-lg
+	2xl:max-w-screen-xl"
+>
+  <h3
+    class="font-display text-3xl text-white uppercase sm:text-2xl text-left
+		md:text-4xl
+		lg:text-neutral-darkest"
+  >
+    Filacars GbR
+  </h3>
+  <div class="footer-links flex flex-col gap-y-8
+  	sm:flex-row sm:flex-wrap
+	md:grid grid-cols-2">
+    <div class="footer-location flex flex-row gap-x-6 gap-y-4 w-full">
+      {
+        location && (
+          <div class="text-neutral-400 mt-2 w-10">
+            <Fragment set:html={location.default} />
+          </div>
+        )
+      }
+      <span class="text-lg font-bold
+	  	sm:flex sm:items-center">
+        Burgstrasse 22<br />53809 Ruppichteroth
+      </span>
+    </div>
+    <div class="footer-phone flex flex-row gap-x-6 gap-y-4">
+      {
+        phone && (
+          <div class="text-neutral-400 mt-2 w-10">
+            <Fragment set:html={phone.default} />
+          </div>
+        )
+      }
+      <span class="text-lg font-bold
+	  	sm:flex sm:items-center">
+        <a href="tel:+491752056296">+49 175 205 6296</a>
+      </span>
+    </div>
+  </div>
+  <div class="flex flex-col gap-y-4">
+    <a href="/impressum" class="hover:underline text-white">Impressum</a>
+    <a href="/datenschutz" class="hover:underline text-white"
+      >Datenschutz&shy;erklärung</a
+    >
+  </div>
+</footer>

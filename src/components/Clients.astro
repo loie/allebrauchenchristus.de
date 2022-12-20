@@ -1,0 +1,16 @@
+---
+const { title, image } = Astro.props;
+const imageFile = image ? `../../public/images/${image}` : undefined
+---
+
+<div class="text flex flex-col w-full">
+	{imageFile  && <img src={imageFile} class="w-full aspect-video object-cover" />}
+	<h3 class="font-display text-3xl text-white mt-8 mb-8 uppercase text-center
+			   sm:text-2xl sm:text-left
+			   md:text-4xl md:pt-8 md:mb-8
+			   lg:text-neutral-darkest
+			   wow animate__animated animate__fadeInUp">		
+		{ title }
+	</h3>
+	<div class="content px-8 text-left prose prose-invert mb-8"><slot /></div>
+</div>

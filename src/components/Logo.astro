@@ -1,0 +1,7 @@
+---
+const { image, alt, title } = Astro.props;
+const imageFile = `/images/${image}`
+
+---
+
+<img src={ imageFile } class="icon" alt={ alt } title={ title } loading="lazy"  />

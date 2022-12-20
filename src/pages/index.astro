@@ -1,0 +1,69 @@
+---
+import Base from "../layouts/Base.astro";
+import Hero from "../components/Hero.astro";
+import Features from "../components/Features.astro";
+import Feature from "../components/Feature.astro";
+import Text from "../components/Text.astro";
+import LeadForm from "../components/LeadForm.astro";
+---
+
+<Base
+  title="Alle brauchen Christus"
+  description="Der Jugendgottesdienst in Waldbröl"
+  image="/images/alle-brauchen-christus.web"
+>
+  <Hero
+    title="Alle brauchen Christus"
+    subtitle="Der Jugendgottesdienst in Waldbröl"
+    bgImage="start-hero.webp"
+    logo="alle-brauchen-christus.webp"
+  >
+    <div slot="social-proof" class="w-full my-8 text-sm 2xl:text-lg">
+      <div class="text-lg">
+        Der nächste Termin ist<br />
+        <strong>05. Februar 2023</strong> um
+        <strong>18:00 Uhr</strong>
+      </div>
+      <div class="">Alte Rathausstraße 4</div>
+      <div class="">51545 Waldbröl</div>
+    </div>
+    <div slot="ctas" class="flex flex-col gap-y w-full gap-y-4 xl:gap-y-8">
+      <!-- -<a href="https://google.com" class="btn w-full primary font-display">Modellauto zum Kauf anbieten</a>-->
+      <a
+        href="/was-soll-das"
+        class="btn w-full primary font-display md:w-fit md:text-lg 2xl:text-2xl"
+        >Was Du davon hast</a
+      >
+      <!--
+      <div
+        class="secondaries flex flex-col gap-y-4 sm:grid sm:grid-cols-2 sm:gap-x-4 md:flex md:flex-row"
+      >
+        <a
+          href="https://www.ebay.de/str/filacars"
+          class="btn w-full secondary font-display md:w-fit">Zur Location</a
+        >
+        <a
+          href="https://www.ebay-kleinanzeigen.de/s-bestandsliste.html?userId=86998874"
+          class="btn w-full secondary font-display md:w-fit"
+          >Alle Termine</a
+        >
+      </div>-->
+    </div>
+  </Hero>
+  <div class="bg-neutral-700 w-full">
+    <Text title="Über Uns" image="filacars-model-kaefer.webp">
+      <p>
+        Wir starteten, weil uns die Sammelleidenschaft an Modellautos packte.
+        Diese Fahrzeuge mit all ihren Details in Vitrinen jeden Tag betrachten
+        zu können machte uns einfach Freude.
+      </p>
+      <p>
+        Daher war es naheliegend, dass wir irgendwann unserer Faszination
+        folgten und einen Handel mit Modellautos ins Leben riefen. Dadurch haben
+        auch andere Liebhaber und Sammler die Möglichkeit, sich mit hochwertigen
+        Modellen eine Freude zu machen.
+      </p>
+      <p><em>Bernhard Fitzlaff & Sandro Lang</em></p>
+    </Text>
+  </div>
+</Base>

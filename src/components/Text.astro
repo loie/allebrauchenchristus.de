@@ -1,0 +1,26 @@
+---
+const { title, image } = Astro.props;
+const imageFile = image ? `/images/${image}` : undefined;
+---
+
+<div
+  class="text grid grid-rows-[auto,_auto] w-full sm:grid-rows-1 sm:grid-cols-2"
+>
+  {
+    imageFile && (
+      <img src={imageFile} class="w-full aspect-video object-cover
+	  	sm:h-full" />
+    )
+  }
+  <div class="text-content">
+    <h3
+      class="font-display text-3xl text-white mt-16 mb-8 uppercase text-center
+	  	sm:text-2xl	sm:text-left sm:px-8 sm:mt-8 sm:mb-4
+		md:text-4xl md:m-16 md:mb-8 md:p-0"
+    >
+      {title}
+    </h3>
+    <div class="content px-8 text-left prose prose-invert mb-16
+		md:m-16 md:mt-8 md:p-0"><slot /></div>
+  </div>
+</div>

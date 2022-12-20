@@ -1,0 +1,105 @@
+---
+const { title, logo } = Astro.props;
+
+//const logoImage = `/logos/${logo}`
+//const logoTitle = `Logo ${title}`
+---
+
+<header class="luna top-0 z-50 flex w-full items-center fixed bg-transparent">
+  <div
+    class="container mx-auto py-2 md:max-w-screen-sm md:mx-auto md:py-0 lg:max-w-screen-md xl:max-w-screen-lg 2xl:max-w-screen-xl"
+  >
+    <div class="relative flex items-center justify-between my-2 xl:items-start">
+      <!--
+			<div class="w-[25rem] max-w-full pl-8 md:pl-0
+						lg:">
+				<a
+					href="/"
+					:class="scrolledFromTop && '!py-2 lg:!py-2' "
+					class="block w-full py-2 lg:py-5"
+				>
+					<img src={ logoImage } alt={ logoTitle } class="w-full max-h-16 object-contain object-left mix-blend-screen" />
+				</a>
+			</div>
+			-->
+
+      <div
+        class="flex w-full items-center justify-end px-4 md:pr-0 xl:flex-col xl:items-end"
+      >
+        <slot name="top-links" />
+        <div>
+          <button
+            id="luna-navbar-toggle"
+            class="absolute right-4 top-1/2 block -translate-y-1/2 rounded-lg px-3 py-[6px] ring-primary md:right-0 xl:hidden"
+          >
+            <span
+              id="luna-navbar-menu-button-top"
+              class="relative my-[6px] block h-[2px] w-[30px] bg-primary dark:bg-white"
+            ></span>
+            <span
+              id="luna-navbar-menu-button-middle"
+              class="relative my-[6px] block h-[2px] w-[20px] bg-primary dark:bg-white"
+            ></span>
+            <span
+              id="luna-navbar-menu-button-bottom"
+              class="relative my-[6px] block h-[2px] w-[25px] bg-primary dark:bg-white"
+            ></span>
+          </button>
+          <nav
+            id="luna-navbar-close"
+            class="hidden absolute right-0 top-12 w-full max-w-[250px] rounded-lg bg-neutral-800/80 backdrop-blur py-4 px-6 shadow xl:backdrop-blur-none xl:static xl:block xl:w-full xl:max-w-full xl:bg-transparent xl:p-0 xl:shadow-none dark:xl:bg-transparent"
+          >
+            <ul class="block xl:flex">
+              <slot />
+            </ul>
+          </nav>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+<script>
+  const header = document.querySelector("header");
+  const toggleButton = document.getElementById("luna-navbar-toggle");
+  const collapseButton = document.getElementById("luna-navbar-close");
+
+  const top = document.getElementById("luna-navbar-menu-button-top");
+  const middle = document.getElementById("luna-navbar-menu-button-middle");
+  const bottom = document.getElementById("luna-navbar-menu-button-bottom");
+
+  const scrolledClasses = {
+    top: ["bg-transparent"],
+    scrolled: [
+      "bg-neutral-800",
+      "bg-opacity-90",
+      "shadow-sticky",
+      "backdrop-blur-sm",
+      "shadow",
+    ],
+  };
+
+  //x-init="window.pageYOffset >= 50 ? scrolledFromTop = true : scrolledFromTop = false"
+  //		  @scroll.window="window.pageYOffset >= 50 ? scrolledFromTop = true : scrolledFromTop = false">
+
+  toggleButton.addEventListener("click", (e) => {
+    toggleButton.classList.toggle("navbarTogglerActive");
+    collapseButton.classList.toggle("hidden");
+
+    top.classList.toggle("rotate-45");
+    top.classList.toggle("top-[7px]");
+    middle.classList.toggle("opacity-0");
+    bottom.classList.toggle("top-[-8px]");
+    bottom.classList.toggle("rotate-[135deg]");
+    bottom.classList.toggle("!w-[30px]");
+  });
+
+  window.addEventListener("scroll", (e) => {
+    window.pageYOffset >= 50
+      ? header.classList.remove(...scrolledClasses.top)
+      : header.classList.remove(...scrolledClasses.scrolled);
+
+    window.pageYOffset >= 50
+      ? header.classList.add(...scrolledClasses.scrolled)
+      : header.classList.add(...scrolledClasses.top);
+  });
+</script>

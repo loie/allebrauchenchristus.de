@@ -1,0 +1,59 @@
+---
+---
+<div
+  id="no-cookie-cookiebanner-container"
+  class="no-cookiebanner-container w-full fixed left-0 bottom-0 translate-y-full transition-transform duration-500 ease-out sm:bottom-0"
+>
+  <div
+    id="no-cookie-cookiebanner"
+    class="nocookie-banner mb-8 w-[calc(100%-4rem)] mx-8 rounded-xl border-4 border-slate-500 border-dashed backdrop-blur bg-slate-50/70 shadow-lg shadow-slate-900 md:max-w-screen-sm md:mx-auto"
+  >
+    <div
+      class="nocookie-banner-content p-8 w-full text-xl text-center sm:text-left md:flex mf:flex-col md:gap-x-8"
+    >
+      <div>
+        <div class="text-2xl mb-4">
+          Wir speichern <strong class="font-bold">keine</strong> Marketing-Cookies
+          auf unserer Website.<br />
+        </div>
+        <span class="text-sm">
+          Mehr darüber, wie wir Daten speichern und nutzen erfahren Sie mehr in
+          unserer <a href="/datenschutz" class="underline"
+            >Datenschutzerklärung</a
+          >.
+        </span>
+      </div>
+      <button
+        id="no-cookie-cookiebanner-button"
+        class="btn secondary font-display block mt-8 w-full sm:w-fit md:w-max"
+        >Vielen&nbsp;Dank</button
+      >
+    </div>
+  </div>
+</div>
+<script>
+  const banner = document.getElementById("no-cookie-cookiebanner-container");
+  const button = document.getElementById("no-cookie-cookiebanner-button");
+
+  const isChecked =
+    window.sessionStorage.getItem("is-cookiebanner-checked") === "true";
+
+  if (!isChecked) {
+    banner.classList.remove('translate-y-full')
+    banner.classList.add('translate-y-0')
+    banner.dataset.isChecked = 'false'
+  }
+
+  button.addEventListener("click", () => {
+    banner.dataset.isChecked = 'true'
+    window.sessionStorage.setItem('is-cookiebanner-checked', 'true')
+    banner.classList.remove("translate-y-0")
+    banner.classList.add("translate-y-full")
+  });
+
+  banner.addEventListener("transitionend", () => {
+    if (banner.dataset.isChecked === 'true') {
+      banner.remove();
+    }
+  });
+</script>

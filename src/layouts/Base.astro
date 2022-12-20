@@ -1,0 +1,80 @@
+---
+import Nav from './partials/navigation/mons-preclare/MonsPreclareNav.astro'
+import NavTopItem from './partials/navigation/mons-preclare/MonsPreclareNavTopItem.astro'
+import NavItem from './partials/navigation/mons-preclare/MonsPreclareNavItem.astro'
+import Footer from './partials/Footer.astro'
+
+const { title, description, image, url } = Astro.props
+
+---
+
+<!DOCTYPE html>
+<html lang="de">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width" />
+		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<meta name="generator" content={Astro.generator} />
+		<meta name="description" content={ description } />
+		<title>{ title }</title>
+		<meta property="og:title" content={title}/>
+		<meta property="og:description" content={description} />
+		<meta property="og:image" content={image} />
+		<meta property="og:url" content={url} />
+		<meta property="og:type" content="website" />
+		<slot name="head" />
+	</head>
+	<body class="text-slate-800 font-body bg-slate-50">
+		<Nav logo="filacars-gbr.webp" title={title} >
+			<div class="mr-16 flex-row lg:mr-0" slot="top-links">
+				<NavTopItem icon="phone" label="WhatsApp" url="https://wa.me/4916097571229" />
+			</div>
+			<NavItem label="Start" url="/" />
+			<NavItem label="Wer sind wir?" url="/wer-sind-wir" />
+			<NavItem label="Impressum" url="/impressum" />
+			<NavItem label="Datenschutz" url="/datenschutz" />
+		</Nav>
+		<slot />
+		<Footer />
+		<script defer>
+			window.badetier_root = ''
+		</script>
+	</body>
+</html>
+<style is:global>
+ @tailwind base;
+ @tailwind components;
+ @tailwind utilities;
+
+
+ @layer components {
+	 .btn {
+		@apply block py-4 px-6 bg-slate-50 border border-slate-200 text-slate-800 transition rounded-lg -translate-y-0.5;
+	}
+
+	.btn:hover {
+		@apply shadow-sm shadow-neutral-400 scale-105;
+	}
+
+	.btn:active {
+		@apply scale-100 shadow-inner bg-neutral-100 shadow-neutral-300;
+	}
+
+	.btn.primary {
+		@apply text-white bg-primary;
+	}
+
+	.btn.primary:hover {
+		@apply shadow-primary-dark;
+	}
+
+	.btn.primary:active {
+		@apply shadow-primary-lightest bg-primary-light;
+	}
+
+	.i-t {
+		@apply block rounded border border-l-4 border-neutral-400 py-2 px-4 w-full outline-4 outline-neutral-400 bg-neutral-700;
+	}
+
+ }
+</style>
